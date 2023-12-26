@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Results{% endblock title %}
+
+{% block body %}
+<div class="container mt-5 mb-4 logo_text_style">
+	<img src="{{ url_for('static', filename='images/OCR_img.png') }}" alt="Image" class="img-fluid" height="60px"
+		width="60px">
+	<h1>Image to Text</h1>
+</div>
+
+<div>
+	<h5 class="logo_text_style">Original Image</h5>
+</div>
+<div class="container card p-3 shadow mb-5 aspect_ratio">
+	<img src="{{ url_for('static', filename='uploads/temp_img.png') }}" class="card-img-bottom">
+</div>
+
+<div>
+	<h5 class="logo_text_style">Extracted Text</h5>
+</div>
+<div class="container card p-3 shadow mb-5 aspect_ratio">
+	<pre class="card-text">{{ extracted_text }}</pre>
+</div>
+{% endblock body %}

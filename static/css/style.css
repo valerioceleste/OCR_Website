@@ -7,7 +7,7 @@ body {
 }
 
 .card-hover:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   transition: transform 0.15s ease-in;
   cursor: pointer;
 }
@@ -31,4 +31,8 @@ body {
 
 .container img {
   margin-right: 30px; /* Adjust this value to set the desired space */
+}
+
+.aspect_ratio {
+  max-width: 1000px;
 }
