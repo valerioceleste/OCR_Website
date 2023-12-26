@@ -12,7 +12,23 @@ body {
   cursor: pointer;
 }
 
-a {
+.card-link {
   color: inherit; /* Keeps the original text color */
   text-decoration: none; /* Removes underline */
+}
+
+.card-link:hover {
+  color: inherit; /* Keeps the original text color */
+  text-decoration: none; /* Removes underline */
+}
+
+.logo_text_style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container img {
+  margin-right: 30px; /* Adjust this value to set the desired space */
 }

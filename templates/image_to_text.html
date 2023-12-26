@@ -3,15 +3,34 @@
 {% block title %}Image to Text{% endblock title %}
 
 {% block body %}
-<div class="container mt-5">
-	<h1 class="text-center">Image to Text Converter</h1>
-	<p class="text-center">Use our OCR tool to convert your image in plain text!</p>
-	<form action="/convert" method="post" enctype="multipart/form-data">
-		<div class="mb-3">
-			<label for="imageUpload" class="form-label">Upload Image:</label>
-			<input type="file" class="form-control" id="imageUpload" name="image" style="height: 150px;">
-		</div>
-		<button type="submit" class="btn btn-primary">Convert to Text</button>
-	</form>
+
+<div class="container mt-5 mb-3 logo_text_style">
+	<img src="{{ url_for('static', filename='images/OCR_img.png') }}" alt="Image" class="img-fluid" height="60px"
+		width="60px">
+	<h1>Image to Text</h1>
 </div>
+<p class="text-center">Use our OCR tool to convert your image into plain text!</p>
+
+<form action="image_to_text/convert" method="post" enctype="multipart/form-data">
+	<div class="mb-3">
+		<input type="file" class="form-control container" id="imageUpload" name="image"
+			style="width: 600px; height: 45px;" required>
+	</div>
+	<div class="text-center">
+		<label for="languageSelect" class="form-label">Select Language:</label>
+		<select class="form-select" id="languageSelect" name="language" required>
+			<option value="" disabled selected>Select Language</option>
+			<option value="eng">English</option>
+			<option value="spa">Spanish</option>
+			<option value="fra">French</option>
+		</select>
+		</select>
+		<div class="container mt-3">
+			<button type="submit" class="btn btn-primary">Convert to Text</button>
+		</div>
+
+	</div>
+
+
+</form>
 {% endblock body %}

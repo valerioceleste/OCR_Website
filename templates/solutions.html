@@ -5,10 +5,13 @@
 {% block body %}
 
 <body>
+	<div class="container-fluid mt-3 ml-4 text-left">
+		<h1>Find here the right tool <br> for all your documents need!</h1>
+	</div>
 	<div class="container-fluid">
 		<div class="row justify-content-between p-4">
 			<div class="col-3">
-				<a href="{{ url_for('image_to_text') }}">
+				<a href="{{ url_for('image_to_text') }}" class="card-link">
 					<div class="card h-100 p-3 shadow card-hover">
 						<img class="card-img-top" src="{{ url_for('static', filename='images/img_to_text.jpg') }}"
 							alt="Card image cap">

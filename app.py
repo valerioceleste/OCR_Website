@@ -21,6 +21,31 @@ def about():
 def image_to_text():
     return render_template('image_to_text.html')
 
+@app.route('/image_to_text/convert', methods=['POST'])
+def img2txt():
+    uploaded_file = request.files['image']
+    language = request.form['language']
+
+    if uploaded_file.filename != '':
+        # Save the uploaded image temporarily
+        img_path = 'temp_img.png'
+        uploaded_file.save(img_path)
+
+        # Perform OCR using pytesseract
+        # extracted_text = pytesseract.image_to_string(Image.open(img_path), lang=language)
+
+        # # Remove temporary image file
+        # os.remove(img_path)
+
+        return render_template('result.html', language=language)
+    return "No file uploaded"
+
+
+
+
+
+
+
 
 if __name__ == "__main__":  
     app.run(debug=True)
