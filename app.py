@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for
-from PIL import Image
+from scripts import OCR
+from PIL import Image   
 import pytesseract
 import os
 
@@ -32,13 +33,10 @@ def img2txt():
     language = request.form['language']
 
     if uploaded_file.filename != '':    
-        # Save the uploaded image in the 'static/uploads' folder
         img_path = os.path.join(app.config['UPLOAD_FOLDER'], 'temp_img.png')
         uploaded_file.save(img_path)
-        
-        # Pass language and image path to result.html
-        return render_template('result.html', language=language, temp_img=img_path)
-    
+        extracted_text = OCR.perform_ocr(img_path, language)
+        return render_template('result.html', extracted_text=extracted_text, temp_img=img_path)
     return "No file uploaded"
 
 
