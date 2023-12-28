@@ -3,8 +3,8 @@
 {% block title %}Tools{% endblock title %}
 
 {% block body %}
-<div class="container-fluid mt-4 ml-4 text-left">
-	<h1>Find here the right tool <br> for all your documents need!</h1>
+<div class="container text-center mt-5 mb-3">
+	<h1>Find here the right tool for all your documents need!</h1>
 </div>
 
 <div class="container-fluid">
@@ -34,7 +34,23 @@
 					</div>
 					<div class="card-body mt-4">
 						<h5 class="card-title">Speech to Text</h5>
-						<p class="card-text">Upload your audio content and convert it to plain text using our AI
+						<p class="card-text">Upload your audio content and st it to plain text using our AI
+							solution.</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-3 mb-4">
+			<a href="{{ url_for('speech_to_text') }}" class="card-link">
+				<div class="card p-3 shadow card-hover">
+					<div class="position-relative" style="height: 50px;">
+						<img class="position-absolute top-0 start-0 m-2"
+							src="{{ url_for('static', filename='images/fm_logo.png') }}" alt="Card image cap"
+							style="width: 45px; height: 45px;">
+					</div>
+					<div class="card-body mt-4">
+						<h5 class="card-title">Image Resize</h5>
+						<p class="card-text">Upload your picture and resize it it to plain text using our AI
 							solution.</p>
 					</div>
 				</div>

@@ -11,7 +11,7 @@
 </div>
 <p class="text-center">Upload your audio content and convert it to plain text!</p>
 
-<form action="/convert" method="post" enctype="multipart/form-data">
+<form action="speech_to_text/convert" method="post" enctype="multipart/form-data">
 	<div class="mb-3">
 		<input type="file" class="form-control container" id="audioUpload" name="audio"
 			style="width: 600px; height: 45px;" required>
@@ -26,9 +26,11 @@
 		</select>
 	</div>
 	<div class="text-center mt-3">
-		<label for="modelSelect" class="form-label">Select Model:</label>
-		<select class="form-select" id="modelSelect" name="modelselect" required>
+		<label for="modelSelect" class="form-label">Select Model Quality:</label>
+		<select class="form-select" id="modelSelect" name="modelquality" required>
 			<option value="" disabled selected>Select Model</option>
+			<option value="tiny">Tiny</option>
+			<option value="base">Base</option>
 			<option value="small">Small</option>
 			<option value="medium">Medium</option>
 			<option value="large">Large</option>
