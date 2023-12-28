@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Speech to Text{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-5 mb-3 logo_text_style">
+	<img src="{{ url_for('static', filename='images/OCR_img.png') }}" alt="Image" class="img-fluid" height="60px"
+		width="60px">
+	<h1>Speech to Text</h1>
+</div>
+<p class="text-center">Upload your audio content and convert it to plain text!</p>
+
+<form action="/convert" method="post" enctype="multipart/form-data">
+	<div class="mb-3">
+		<input type="file" class="form-control container" id="audioUpload" name="audio"
+			style="width: 600px; height: 45px;" required>
+	</div>
+	<div class="text-center">
+		<label for="languageSelect" class="form-label">Select Language:</label>
+		<select class="form-select" id="languageSelect" name="language" required>
+			<option value="" disabled selected>Select Language</option>
+			<option value="eng">English</option>
+			<option value="spa">Spanish</option>
+			<option value="fra">French</option>
+		</select>
+	</div>
+	<div class="text-center mt-3">
+		<label for="modelSelect" class="form-label">Select Model:</label>
+		<select class="form-select" id="modelSelect" name="modelselect" required>
+			<option value="" disabled selected>Select Model</option>
+			<option value="small">Small</option>
+			<option value="medium">Medium</option>
+			<option value="large">Large</option>
+		</select>
+	</div>
+	<div class="container text-center mt-3">
+		<button type="submit" class="btn btn-primary">Convert to Text</button>
+	</div>
+
+	</div>
+
+
+</form>
+{% endblock body %}

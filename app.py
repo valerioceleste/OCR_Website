@@ -27,7 +27,23 @@ def about():
 def image_to_text():
     return render_template('image_to_text.html')
 
+@app.route('/speech_to_text', methods=['GET','POST'])
+def speech_to_text():
+    return render_template('speech_to_text.html')
+
 @app.route('/convert', methods=['POST'])
+def img2txt():
+    uploaded_file = request.files['image']
+    language = request.form['language']
+
+    if uploaded_file.filename != '':    
+        img_path = os.path.join(app.config['UPLOAD_FOLDER'], 'temp_img.png')
+        uploaded_file.save(img_path)
+        extracted_text = OCR.perform_ocr(img_path, language)
+        return render_template('result.html', extracted_text=extracted_text, temp_img=img_path)
+    return "No file uploaded"
+
+@app.route('/speech_to_text/convert', methods=['POST'])
 def img2txt():
     uploaded_file = request.files['image']
     language = request.form['language']
